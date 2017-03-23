@@ -6,5 +6,6 @@ target 'Bliss Apiary Objective-C' do
   # use_frameworks!
 
   # Pods for Bliss Apiary Objective-C
+  pod 'AFNetworking', '~> 3.0'
 
 end
