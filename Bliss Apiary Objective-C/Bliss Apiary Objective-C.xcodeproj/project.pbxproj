@@ -13,9 +13,12 @@
 		74C0F1051E8474F200D40D0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C0F1031E8474F200D40D0A /* Main.storyboard */; };
 		74C0F1071E8474F200D40D0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C0F1061E8474F200D40D0A /* Assets.xcassets */; };
 		74C0F10A1E8474F200D40D0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C0F1081E8474F200D40D0A /* LaunchScreen.storyboard */; };
+		9D670CE6294A26A0F3A4FEE2 /* libPods-Bliss Apiary Objective-C.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA09F8E7B4FF6A10580BBB69 /* libPods-Bliss Apiary Objective-C.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AEEE5F114308A17B35BB924 /* Pods-Bliss Apiary Objective-C.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bliss Apiary Objective-C.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bliss Apiary Objective-C/Pods-Bliss Apiary Objective-C.release.xcconfig"; sourceTree = "<group>"; };
+		5DC12545A7086CA7FB00FE71 /* Pods-Bliss Apiary Objective-C.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bliss Apiary Objective-C.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bliss Apiary Objective-C/Pods-Bliss Apiary Objective-C.debug.xcconfig"; sourceTree = "<group>"; };
 		74C0F0F71E8474F200D40D0A /* Bliss Apiary Objective-C.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bliss Apiary Objective-C.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C0F0FB1E8474F200D40D0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		74C0F0FD1E8474F200D40D0A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		74C0F1061E8474F200D40D0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74C0F1091E8474F200D40D0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74C0F10B1E8474F200D40D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA09F8E7B4FF6A10580BBB69 /* libPods-Bliss Apiary Objective-C.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bliss Apiary Objective-C.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D670CE6294A26A0F3A4FEE2 /* libPods-Bliss Apiary Objective-C.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				74C0F0F91E8474F200D40D0A /* Bliss Apiary Objective-C */,
 				74C0F0F81E8474F200D40D0A /* Products */,
+				EBE0FDC294271796DC17AFE1 /* Pods */,
+				7BD306B1E47375F05BC2E6D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7BD306B1E47375F05BC2E6D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA09F8E7B4FF6A10580BBB69 /* libPods-Bliss Apiary Objective-C.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBE0FDC294271796DC17AFE1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5DC12545A7086CA7FB00FE71 /* Pods-Bliss Apiary Objective-C.debug.xcconfig */,
+				2AEEE5F114308A17B35BB924 /* Pods-Bliss Apiary Objective-C.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74C0F10E1E8474F200D40D0A /* Build configuration list for PBXNativeTarget "Bliss Apiary Objective-C" */;
 			buildPhases = (
+				0E49C2F6C4DF33A9060EE7D4 /* [CP] Check Pods Manifest.lock */,
 				74C0F0F31E8474F200D40D0A /* Sources */,
 				74C0F0F41E8474F200D40D0A /* Frameworks */,
 				74C0F0F51E8474F200D40D0A /* Resources */,
+				26321D30CA7FEE16E0EFDDCC /* [CP] Embed Pods Frameworks */,
+				FA2AC258ACE7810148A9C627 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,6 +172,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E49C2F6C4DF33A9060EE7D4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		26321D30CA7FEE16E0EFDDCC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bliss Apiary Objective-C/Pods-Bliss Apiary Objective-C-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA2AC258ACE7810148A9C627 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bliss Apiary Objective-C/Pods-Bliss Apiary Objective-C-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		74C0F0F31E8474F200D40D0A /* Sources */ = {
@@ -271,6 +346,7 @@
 		};
 		74C0F10F1E8474F200D40D0A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DC12545A7086CA7FB00FE71 /* Pods-Bliss Apiary Objective-C.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BWR284E7E7;
@@ -283,6 +359,7 @@
 		};
 		74C0F1101E8474F200D40D0A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AEEE5F114308A17B35BB924 /* Pods-Bliss Apiary Objective-C.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BWR284E7E7;
