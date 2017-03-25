@@ -7,9 +7,12 @@
 //
 
 #import "ShareViewController.h"
+#import "ServicesManager.h"
 
 @interface ShareViewController ()
 - (IBAction)didClickCloseButton:(UIBarButtonItem *)sender;
+- (IBAction)didClickSendButton:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 
 @end
 
@@ -35,8 +38,22 @@
 }
 */
 
+#pragma mark - Actions
 - (IBAction)didClickCloseButton:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:^{
     }];
+}
+
+- (IBAction)didClickSendButton:(UIButton *)sender {
+    NSString *email = self.emailTextField.text;
+    if (!self.questionID) {
+        [self share:email withContent:self.searchQuery];
+    }else{
+        [self share:email withContent:[self.questionID stringValue]];
+    }
+}
+
+- (void)share:(NSString *)email withContent:(NSString *) content{
+    [[ServicesManager sharedManager] share:email content:content];
 }
 @end

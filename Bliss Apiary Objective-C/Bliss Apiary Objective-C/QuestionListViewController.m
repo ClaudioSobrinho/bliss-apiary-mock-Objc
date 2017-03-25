@@ -10,10 +10,13 @@
 #import "ServicesManager.h"
 #import "Question.h"
 #import "DetailViewController.h"
+#import "ShareViewController.h"
 
-@interface QuestionListViewController()
+@interface QuestionListViewController() <UISearchBarDelegate, UISearchDisplayDelegate>
 @property(strong,nonatomic) NSMutableArray *questionArray;
 @property (weak, nonatomic) IBOutlet UITableView *questionsTableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchTextField;
+- (IBAction)didClickShareButton:(UIBarButtonItem *)sender;
 @end
 
 @implementation QuestionListViewController
@@ -22,7 +25,7 @@
     [super viewDidLoad];
     
     self.title = @"Questions Screen";
-    [self getQuestions];
+    [self getQuestions:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -42,7 +45,6 @@
 */
 
 #pragma mark - TableView Delegates
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.questionArray count];
@@ -64,14 +66,29 @@
     return cell;
 }
 
+#pragma mark - Searchbar Delegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if (searchText.length >= 2) {
+        [self getQuestions:searchText];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailViewController *vc = (DetailViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
     vc.question = self.questionArray[indexPath.row];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+#pragma mark - Actions
+- (IBAction)didClickShareButton:(UIBarButtonItem *)sender {
+    ShareViewController *vc = (ShareViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+    vc.searchQuery = self.searchTextField.text;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 #pragma mark - Services
-- (void)getQuestions{
+- (void)getQuestions:(NSString *)filter{
         [[ServicesManager sharedManager] getQuestions:nil
                                            withFilter:nil
                                             andOffset:nil
@@ -84,5 +101,6 @@
                                                   NSLog(@"🔴Array🔴: %@", error);
                                               }];
 }
+
 
 @end

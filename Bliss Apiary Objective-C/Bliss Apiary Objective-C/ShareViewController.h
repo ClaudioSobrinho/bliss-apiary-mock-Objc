@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ShareViewController : UIViewController
-
+@property (strong,nonatomic) NSNumber *questionID;
+@property (strong,nonatomic) NSString *searchQuery;
 @end

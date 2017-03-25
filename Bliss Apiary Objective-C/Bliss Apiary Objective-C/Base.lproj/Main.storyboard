@@ -93,6 +93,9 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="goW-HQ-D3n">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ZgN-zR-8Yv" id="dbp-ax-YA0"/>
+                                </connections>
                             </searchBar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVM-Hw-AkD">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -104,9 +107,7 @@
                                     <navigationItem title="Questions List Screen" id="OL2-uU-3DN">
                                         <barButtonItem key="rightBarButtonItem" title="Share" id="jF3-8v-oVa">
                                             <connections>
-                                                <segue destination="V20-UB-4Cd" kind="popoverPresentation" popoverAnchorBarButtonItem="jF3-8v-oVa" id="uI8-Nr-xA9">
-                                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                </segue>
+                                                <action selector="didClickShareButton:" destination="ZgN-zR-8Yv" id="Ot3-pg-fCk"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -138,6 +139,7 @@
                     <connections>
                         <outlet property="questionsTableView" destination="3Uc-wE-GfX" id="S1e-HA-Zvp"/>
                         <outlet property="searchDisplayController" destination="v3w-pZ-PBZ" id="J7l-fU-eh7"/>
+                        <outlet property="searchTextField" destination="goW-HQ-D3n" id="3it-Dn-RKF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWB-o1-TcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,7 +152,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="892" y="36"/>
+            <point key="canvasLocation" x="858" y="-70"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="d4k-zG-eWz">
@@ -176,9 +178,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Share" id="H8L-zD-Tcx">
                                             <connections>
-                                                <segue destination="V20-UB-4Cd" kind="popoverPresentation" popoverAnchorBarButtonItem="H8L-zD-Tcx" id="MiU-QW-KDe">
-                                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                </segue>
+                                                <action selector="didClickShareButton:" destination="E7e-2e-0Mm" id="58k-Sn-eRo"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -337,7 +337,7 @@
         <!--Share View Controller-->
         <scene sceneID="jHa-eh-T09">
             <objects>
-                <viewController id="V20-UB-4Cd" customClass="ShareViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShareViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="V20-UB-4Cd" customClass="ShareViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h6b-Fy-05u"/>
                         <viewControllerLayoutGuide type="bottom" id="rN3-j7-WPn"/>
@@ -360,24 +360,56 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Da7-sV-J70">
+                                <rect key="frame" x="50" y="258.5" width="275" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Xe-4K-vKt">
+                                <rect key="frame" x="50" y="234" width="30.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyW-oV-qxF">
+                                <rect key="frame" x="137" y="318.5" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.39377415339999999" green="0.55047427859999998" blue="0.69691143129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Rk0-sd-IJ3"/>
+                                </constraints>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickSendButton:" destination="V20-UB-4Cd" eventType="touchUpInside" id="89j-ts-vMA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ial-Ry-aq7" secondAttribute="trailing" id="3jt-dL-n2m"/>
+                            <constraint firstItem="zyW-oV-qxF" firstAttribute="top" secondItem="Da7-sV-J70" secondAttribute="bottom" constant="30" id="DAz-7W-RDY"/>
+                            <constraint firstAttribute="trailing" secondItem="Da7-sV-J70" secondAttribute="trailing" constant="50" id="G5Q-dS-Rks"/>
+                            <constraint firstItem="zyW-oV-qxF" firstAttribute="centerY" secondItem="Y2E-bI-kDQ" secondAttribute="centerY" id="LFU-W3-fCu"/>
+                            <constraint firstItem="zyW-oV-qxF" firstAttribute="centerX" secondItem="Y2E-bI-kDQ" secondAttribute="centerX" id="MdY-aA-CaR"/>
                             <constraint firstItem="Ial-Ry-aq7" firstAttribute="top" secondItem="h6b-Fy-05u" secondAttribute="bottom" id="NlX-3U-ECR"/>
+                            <constraint firstItem="Da7-sV-J70" firstAttribute="top" secondItem="8Xe-4K-vKt" secondAttribute="bottom" constant="10" id="P3b-HI-oxh"/>
+                            <constraint firstItem="8Xe-4K-vKt" firstAttribute="leading" secondItem="Da7-sV-J70" secondAttribute="leading" id="XUW-2u-HzT"/>
+                            <constraint firstItem="Da7-sV-J70" firstAttribute="leading" secondItem="Y2E-bI-kDQ" secondAttribute="leading" constant="50" id="Y7Q-yk-Kk4"/>
                             <constraint firstItem="Ial-Ry-aq7" firstAttribute="leading" secondItem="Y2E-bI-kDQ" secondAttribute="leading" id="gYX-F3-dbn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="Da7-sV-J70" id="lgg-hq-OjW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdQ-TK-Zbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1270" y="714"/>
+            <point key="canvasLocation" x="1271" y="759"/>
         </scene>
     </scenes>
     <resources>
         <image name="warning" width="240" height="240"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="MiU-QW-KDe"/>
-    </inferredMetricsTieBreakers>
 </document>

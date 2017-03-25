@@ -17,6 +17,9 @@ static NSString* const Health = @"health";
 static NSString* const Questions = @"questions";
 static NSString* const QuestionID = @"questions/";
 static NSString* const Share = @"share";
+static NSString* const BaseShareURL = @"blissrecruitment://questions?";
+static NSString* const ShareURLFilter = @"question_filter=";
+static NSString* const ShareURLId = @"bquestion_id=";
 
 #pragma mark - Interface Definition
 @interface ServicesManager : AFHTTPSessionManager

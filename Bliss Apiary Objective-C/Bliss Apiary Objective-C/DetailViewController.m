@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "ShareViewController.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *questionImageURLImageView;
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *thirdChoiceCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *forthChoiceCountLabel;
 - (IBAction)didClickBackButton:(UIBarButtonItem *)sender;
+- (IBAction)didClickShareButton:(UIBarButtonItem *)sender;
 
 @end
 
@@ -69,11 +71,16 @@
 }
 */
 
-#pragma mark - Auxiliar methods
-
-
+#pragma mark - Actions
 - (IBAction)didClickBackButton:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:^{
     }];
+}
+
+- (IBAction)didClickShareButton:(UIBarButtonItem *)sender {
+    ShareViewController *vc = (ShareViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+    vc.questionID = self.question.questionID;
+    [self presentViewController:vc animated:YES completion:nil];
+    
 }
 @end
