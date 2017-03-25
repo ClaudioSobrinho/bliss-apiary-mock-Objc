@@ -1,26 +1,35 @@
 //
-//  ViewController.m
+//  LoadingViewController.m
 //  Bliss Apiary Objective-C
 //
 //  Created by Claudio Sobrinho on 3/23/17.
 //  Copyright © 2017 Claudio Sobrinho. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LoadingViewController.h"
 #import "ServicesManager.h"
 #import "Question.h"
 #import "Choice.h"
+#import "DGActivityIndicatorView.h"
 
-@interface ViewController ()
+@interface LoadingViewController ()
+@property (weak, nonatomic) IBOutlet UIView *loaderView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loaderViewHeigh;
+@property (weak, nonatomic) IBOutlet UIImageView *warningImageView;
+@property (weak, nonatomic) IBOutlet UILabel *warningLabel;
+@property (weak, nonatomic) IBOutlet UIButton *retryButton;
 
 @end
 
-@implementation ViewController
+@implementation LoadingViewController
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+//    [self.loader startAnimating];
 //TODO: Clean tests
 //    [[ServicesManager sharedManager] checkServerHealth];
 //    [[ServicesManager sharedManager] getQuestions:@10 withFilter:@""];
@@ -66,11 +75,62 @@
 //                                          }];
 }
 
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    
+    [self startLoader];
+    [self checkServerHealth];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Actions
+- (IBAction)didClickRetryButton:(UIButton *)sender{
+    [self checkServerHealth];
+}
 
+
+#pragma mark - Auxiliar methods
+- (void)startLoader{
+    DGActivityIndicatorView *activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallTrianglePath tintColor:[UIColor darkGrayColor] size:50.0f];
+    activityIndicatorView.frame = self.loaderView.frame;
+    activityIndicatorView.center = CGPointMake(CGRectGetMidX(self.loaderView.bounds), CGRectGetMidY(self.loaderView.bounds));
+    
+    [self.loaderView addSubview:activityIndicatorView];
+    [activityIndicatorView startAnimating];
+}
+
+- (void)dismissLoader{
+    [self.view layoutIfNeeded];
+    
+    self.loaderViewHeigh.constant = -100;
+    
+    [UIView animateWithDuration:2 animations:^{
+        [self.view layoutIfNeeded];
+        
+        self.loaderView.alpha = 0;
+    }];
+}
+
+- (void)showErrorView{
+    self.loaderView.hidden = YES;
+    self.warningImageView.hidden = NO;
+    self.warningLabel.hidden = NO;
+    self.retryButton.hidden = NO;
+}
+
+#pragma mark - Services
+- (void)checkServerHealth{
+    [[ServicesManager sharedManager] checkServerHealth:^(BOOL isAlive){
+        NSLog(@"✅checkServerHealth✅:");
+        [self dismissLoader];
+    }
+                                               failure:^(NSURLSessionTask *task, NSError *error){
+                                                   NSLog(@"🔴checkServerHealth🔴: %@", error);
+                                                   [self showErrorView];
+                                               }];
+}
 @end

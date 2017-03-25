@@ -1,0 +1,6 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Da0-VS-Gjm"; */
+"Da0-VS-Gjm.normalTitle" = "Retry";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ZDg-vn-Tbl"; */
+"ZDg-vn-Tbl.text" = "Oops,\n it appears the server is not responding";

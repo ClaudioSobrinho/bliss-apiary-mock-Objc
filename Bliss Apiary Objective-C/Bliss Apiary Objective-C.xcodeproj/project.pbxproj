@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		74C0F0FC1E8474F200D40D0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0F0FB1E8474F200D40D0A /* main.m */; };
 		74C0F0FF1E8474F200D40D0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0F0FE1E8474F200D40D0A /* AppDelegate.m */; };
-		74C0F1021E8474F200D40D0A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0F1011E8474F200D40D0A /* ViewController.m */; };
+		74C0F1021E8474F200D40D0A /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0F1011E8474F200D40D0A /* LoadingViewController.m */; };
 		74C0F1051E8474F200D40D0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C0F1031E8474F200D40D0A /* Main.storyboard */; };
 		74C0F1071E8474F200D40D0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C0F1061E8474F200D40D0A /* Assets.xcassets */; };
 		74C0F10A1E8474F200D40D0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C0F1081E8474F200D40D0A /* LaunchScreen.storyboard */; };
 		74C0F1131E85DDE800D40D0A /* ServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0F1121E85DDE800D40D0A /* ServicesManager.m */; };
 		74C0F1171E86A4F400D40D0A /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0F1161E86A4F400D40D0A /* Question.m */; };
 		74C0F11A1E86AA2800D40D0A /* Choice.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0F1191E86AA2800D40D0A /* Choice.m */; };
+		74E0CCBE1E87031B00A72D00 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74E0CCBD1E87031B00A72D00 /* Localizable.strings */; };
 		9D670CE6294A26A0F3A4FEE2 /* libPods-Bliss Apiary Objective-C.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA09F8E7B4FF6A10580BBB69 /* libPods-Bliss Apiary Objective-C.a */; };
 /* End PBXBuildFile section */
 
@@ -26,8 +27,8 @@
 		74C0F0FB1E8474F200D40D0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		74C0F0FD1E8474F200D40D0A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		74C0F0FE1E8474F200D40D0A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		74C0F1001E8474F200D40D0A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		74C0F1011E8474F200D40D0A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		74C0F1001E8474F200D40D0A /* LoadingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		74C0F1011E8474F200D40D0A /* LoadingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		74C0F1041E8474F200D40D0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74C0F1061E8474F200D40D0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74C0F1091E8474F200D40D0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +39,8 @@
 		74C0F1161E86A4F400D40D0A /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Question.m; path = Model/Question.m; sourceTree = "<group>"; };
 		74C0F1181E86AA2800D40D0A /* Choice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Choice.h; path = Model/Choice.h; sourceTree = "<group>"; };
 		74C0F1191E86AA2800D40D0A /* Choice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Choice.m; path = Model/Choice.m; sourceTree = "<group>"; };
+		74E0CCBD1E87031B00A72D00 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		74E0CCC01E8706C200A72D00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		EA09F8E7B4FF6A10580BBB69 /* libPods-Bliss Apiary Objective-C.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bliss Apiary Objective-C.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -77,8 +80,8 @@
 				74C0F1141E86A4C300D40D0A /* Model */,
 				74C0F0FD1E8474F200D40D0A /* AppDelegate.h */,
 				74C0F0FE1E8474F200D40D0A /* AppDelegate.m */,
-				74C0F1001E8474F200D40D0A /* ViewController.h */,
-				74C0F1011E8474F200D40D0A /* ViewController.m */,
+				74C0F1001E8474F200D40D0A /* LoadingViewController.h */,
+				74C0F1011E8474F200D40D0A /* LoadingViewController.m */,
 				74C0F1031E8474F200D40D0A /* Main.storyboard */,
 				74C0F1061E8474F200D40D0A /* Assets.xcassets */,
 				74C0F1081E8474F200D40D0A /* LaunchScreen.storyboard */,
@@ -86,6 +89,7 @@
 				74C0F0FA1E8474F200D40D0A /* Supporting Files */,
 				74C0F1111E85DDE800D40D0A /* ServicesManager.h */,
 				74C0F1121E85DDE800D40D0A /* ServicesManager.m */,
+				74E0CCBD1E87031B00A72D00 /* Localizable.strings */,
 			);
 			path = "Bliss Apiary Objective-C";
 			sourceTree = "<group>";
@@ -189,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74C0F10A1E8474F200D40D0A /* LaunchScreen.storyboard in Resources */,
+				74E0CCBE1E87031B00A72D00 /* Localizable.strings in Resources */,
 				74C0F1071E8474F200D40D0A /* Assets.xcassets in Resources */,
 				74C0F1051E8474F200D40D0A /* Main.storyboard in Resources */,
 			);
@@ -250,7 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74C0F11A1E86AA2800D40D0A /* Choice.m in Sources */,
-				74C0F1021E8474F200D40D0A /* ViewController.m in Sources */,
+				74C0F1021E8474F200D40D0A /* LoadingViewController.m in Sources */,
 				74C0F1131E85DDE800D40D0A /* ServicesManager.m in Sources */,
 				74C0F1171E86A4F400D40D0A /* Question.m in Sources */,
 				74C0F0FF1E8474F200D40D0A /* AppDelegate.m in Sources */,
@@ -265,6 +270,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				74C0F1041E8474F200D40D0A /* Base */,
+				74E0CCC01E8706C200A72D00 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

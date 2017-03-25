@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LoadingViewController.h
 //  Bliss Apiary Objective-C
 //
 //  Created by Claudio Sobrinho on 3/23/17.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface LoadingViewController : UIViewController
 
 
 @end
