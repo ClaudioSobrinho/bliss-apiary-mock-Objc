@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
+#import "Question.h"
 
 #pragma mark - Service Paths
 static NSString * const BaseURL = @"https://private-bbbe9-blissrecruitmentapi.apiary-mock.com/";
@@ -15,14 +16,21 @@ static NSString * const BaseURL = @"https://private-bbbe9-blissrecruitmentapi.ap
 static NSString* const Health = @"health";
 static NSString* const Questions = @"questions";
 static NSString* const QuestionID = @"questions/";
-static NSString* const Share = @"questions";
+static NSString* const Share = @"share";
 
+#pragma mark - Interface Definition
 @interface ServicesManager : AFHTTPSessionManager
 
 + (ServicesManager *) sharedManager;
 - (void)checkServerHealth;
 - (void) getQuestions:(NSNumber *)numberOfQuestions
            withFilter:(NSString *) filter;
-- (void) getQuestion:(NSNumber *)questionID;
+- (void) getQuestion:(NSNumber *)questionID
+             success:(void (^)(Question *question))success
+             failure:(void (^)(NSURLSessionTask *operation, NSError *error))failure;
+- (void) postQuestion:(Question *)question;
+- (void) putQuestion:(Question *)question;
+- (void) share:(NSString *)destinationEmail
+       content:(NSString *)contentURL;
 
 @end
