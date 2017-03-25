@@ -15,15 +15,18 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - DGActivityIndicatorView (2.1.1)
+  - IQKeyboardManager (4.0.8)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - DGActivityIndicatorView
+  - IQKeyboardManager
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
+  IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
 
-PODFILE CHECKSUM: 7988e5b9844ea1a6435fd43e03169822e8e30e4b
+PODFILE CHECKSUM: cd6a8e465725c9982233fc3a1ad3ce734655a592
 
 COCOAPODS: 1.2.0

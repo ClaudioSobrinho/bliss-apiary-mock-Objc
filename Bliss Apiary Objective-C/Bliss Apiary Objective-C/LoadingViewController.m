@@ -11,6 +11,7 @@
 #import "Question.h"
 #import "Choice.h"
 #import "DGActivityIndicatorView.h"
+#import "QuestionListViewController.h"
 
 @interface LoadingViewController ()
 @property (weak, nonatomic) IBOutlet UIView *loaderView;
@@ -108,11 +109,17 @@
     
     self.loaderViewHeigh.constant = -100;
     
-    [UIView animateWithDuration:2 animations:^{
-        [self.view layoutIfNeeded];
-        
-        self.loaderView.alpha = 0;
-    }];
+    [UIView animateWithDuration:5
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                         self.loaderView.alpha = 0;
+                     }
+                     completion:^(BOOL finished){
+                         if (finished) {
+                             QuestionListViewController *vc = (QuestionListViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"QuestionListViewController"];
+                             [self presentViewController:vc animated:YES completion:nil];
+                         }
+                     }];
 }
 
 - (void)showErrorView{
