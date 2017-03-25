@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ServicesManager.h"
 
 @interface ViewController ()
 
@@ -14,9 +15,14 @@
 
 @implementation ViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+//    [[ServicesManager sharedManager] checkServerHealth];
+//    [[ServicesManager sharedManager] getQuestions:@10 withFilter:@""];
+//    [[ServicesManager sharedManager] getQuestion:@4];
 }
 
 
