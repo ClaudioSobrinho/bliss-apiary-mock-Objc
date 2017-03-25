@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Questions Screen";
     [self getQuestions];
     // Do any additional setup after loading the view.
 }
@@ -59,7 +60,7 @@
     
     Question *question = [self.questionArray objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [question.questionID stringValue];
+    cell.textLabel.text = question.question;
     return cell;
 }
 
@@ -77,11 +78,7 @@
                                               success:^(NSMutableArray *questionArray){
                                                   NSLog(@"✅Array✅:");
                                                   self.questionArray = questionArray;
-                                                  
                                                   [self.questionsTableView reloadData];
-                                                  for (Question *question in questionArray) {
-                                                      NSLog(@"%@:%@", question.questionID, question.question);
-                                                  }
                                               }
                                               failure:^(NSURLSessionTask *task, NSError *error){
                                                   NSLog(@"🔴Array🔴: %@", error);
