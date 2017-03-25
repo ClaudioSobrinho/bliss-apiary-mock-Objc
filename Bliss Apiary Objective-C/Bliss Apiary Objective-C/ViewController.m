@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+//TODO: Clean tests
 //    [[ServicesManager sharedManager] checkServerHealth];
 //    [[ServicesManager sharedManager] getQuestions:@10 withFilter:@""];
 //    [[ServicesManager sharedManager] getQuestion:@4];
@@ -44,13 +44,26 @@
 //    Question *question = [[ServicesManager sharedManager] getQuestion:@4];
 //    NSLog(@"✅Object✅: %@", question.question);
 
-    [[ServicesManager sharedManager] getQuestion:@4
-                                         success:^(Question *question){
-                                             NSLog(@"✅Object✅: %@", question.question);
-                                         }
-                                         failure:^(NSURLSessionTask *task, NSError *error){
-                                             NSLog(@"🔴Object🔴: %@", error);
-                                         }];
+//    [[ServicesManager sharedManager] getQuestion:@4
+//                                         success:^(Question *question){
+//                                             NSLog(@"✅Object✅: %@", question.question);
+//                                         }
+//                                         failure:^(NSURLSessionTask *task, NSError *error){
+//                                             NSLog(@"🔴Object🔴: %@", error);
+//                                         }];
+    
+//    [[ServicesManager sharedManager] getQuestions:nil
+//                                       withFilter:nil
+//                                        andOffset:nil
+//                                          success:^(NSMutableArray *questionArray){
+//                                              NSLog(@"✅Array✅:");
+//                                              for (Question *question in questionArray) {
+//                                                  NSLog(@"%@:%@", question.questionID, question.question);
+//                                              }
+//                                          }
+//                                          failure:^(NSURLSessionTask *task, NSError *error){
+//                                              NSLog(@"🔴Array🔴: %@", error);
+//                                          }];
 }
 
 

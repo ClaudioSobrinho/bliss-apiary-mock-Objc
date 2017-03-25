@@ -28,26 +28,33 @@
 }
 
 #pragma mark - Services
-- (void) checkServerHealth {
+- (void) checkServerHealth:(void (^)(BOOL isAlive))success
+                   failure:(void (^)(NSURLSessionTask *operation, NSError *error))failure{
     [self GET:[BaseURL stringByAppendingString:Health]
       parameters:nil
         progress:nil
          success:^(NSURLSessionTask *task, id responseObject) {
              
         NSLog(@"✅checkServerHealth✅: %@", responseObject);
+        success(YES);
              
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         
         NSLog(@"🔴checkServerHealth🔴: %@", error);
+        failure(operation, error);
         
     }];
 }
 
 - (void) getQuestions:(NSNumber *)numberOfQuestions
-           withFilter:(NSString *) filter{
-    NSDictionary *parameters = @{@"limit" : numberOfQuestions,
-                                 @"offset" : @0,
-                                 @"filter" : @""};
+           withFilter:(NSString *)filter
+            andOffset:(NSNumber *)offset
+              success:(void (^)(NSMutableArray *questionArray))success
+              failure:(void (^)(NSURLSessionTask *operation, NSError *error))failure{
+    
+    NSDictionary *parameters = @{@"limit" : numberOfQuestions == nil ? @10 : numberOfQuestions,
+                                 @"offset" : offset == nil ? @0 : offset,
+                                 @"filter" : filter == nil ? @"" : filter};
     
     [self GET:[BaseURL stringByAppendingString:Questions]
    parameters:parameters
@@ -56,9 +63,35 @@
           
           NSLog(@"✅getQuestions✅: %@", responseObject);
           
+          NSMutableArray *questionArray = [[NSMutableArray alloc] init];
+          
+          if ([responseObject isKindOfClass:[NSArray class]]){
+              for (NSDictionary *dictionary in responseObject) {
+                  Question *question = [[Question alloc] init];
+                  question.questionID = [dictionary objectForKey:@"id"];
+                  question.question = [dictionary objectForKey:@"question"];
+                  question.imageURL = [dictionary objectForKey:@"image_url"];
+                  question.thumbURL = [dictionary objectForKey:@"thumb_url"];
+                  question.publishDate = [dictionary objectForKey:@"published_at"];
+                  
+                  NSArray *choicesDictionaryArray = dictionary[@"choices"];
+                  if ([choicesDictionaryArray isKindOfClass:[NSArray class]]){
+                      for (NSDictionary *dictionary in choicesDictionaryArray) {
+                          Choice *choice = [[Choice alloc] init];
+                          choice.choice = [dictionary objectForKey:@"choice"];
+                          choice.voteCount = @([[dictionary objectForKey:@"votes"] integerValue]);
+                          [question.choicesArray addObject:choice];
+                      }
+                  }
+                  [questionArray addObject:question];
+              }
+          }
+          success(questionArray);
+          
       } failure:^(NSURLSessionTask *operation, NSError *error) {
           
           NSLog(@"🔴getQuestions🔴: %@", error);
+          failure(operation, error);
           
       }];
 }

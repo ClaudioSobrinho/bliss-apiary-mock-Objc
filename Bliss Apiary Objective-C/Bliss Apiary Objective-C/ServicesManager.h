@@ -22,9 +22,13 @@ static NSString* const Share = @"share";
 @interface ServicesManager : AFHTTPSessionManager
 
 + (ServicesManager *) sharedManager;
-- (void)checkServerHealth;
+- (void) checkServerHealth:(void (^)(BOOL isAlive))success
+                   failure:(void (^)(NSURLSessionTask *operation, NSError *error))failure;
 - (void) getQuestions:(NSNumber *)numberOfQuestions
-           withFilter:(NSString *) filter;
+           withFilter:(NSString *)filter
+            andOffset:(NSNumber *)offset
+              success:(void (^)(NSMutableArray *questionArray))success
+              failure:(void (^)(NSURLSessionTask *operation, NSError *error))failure;
 - (void) getQuestion:(NSNumber *)questionID
              success:(void (^)(Question *question))success
              failure:(void (^)(NSURLSessionTask *operation, NSError *error))failure;
